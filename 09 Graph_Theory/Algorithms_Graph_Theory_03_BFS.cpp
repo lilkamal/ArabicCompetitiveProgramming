@@ -13,7 +13,7 @@
  * 																								*
  * In case of finding a mistake, kindly notify me at: mostafa.saad.fci@gmail.com				*
  * 																								*
- * Mostafa Saad Ibrahim © 2013																	*
+ * Mostafa Saad Ibrahim Â© 2013																	*
  * 																								*
  ************************************************************************************************
  *
@@ -132,8 +132,9 @@ vector<int> BFS2(int s, vector<vector<int> > & adjList) {
 	q.push(s), len[s] = 0;
 
 	int dep = 0, cur = s, sz = 1;
-	for (; !q.empty(); ++dep, sz = q.size()) {
-		while (sz--) {
+	// it's just get all nodes that are in the same level first then what is remaining is the next level.
+	for (; !q.empty(); ++dep, sz = q.size()) {  
+		while (sz--) {       
 			cur = q.front(), q.pop();
 			rep(i, adjList[cur]) if (len[adjList[cur][i]] == OO)
 				q.push(adjList[cur][i]), len[adjList[cur][i]] = dep+1;
